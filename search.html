@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-[#171122] dark group/design-root overflow-x-hidden"
+      style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#2f2348] px-10 py-3">
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-white">
+              <div class="size-4">
+                <!-- SVG Logo -->
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- ...SVG content... -->
+                </svg>
+              </div>
+              <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Vibe Movies</h2>
+            </div>
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal hover:text-[#5b13ec] transition" href="#">Home</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-[#5b13ec] transition" href="#">Movies</a>
+              <a class="text-white text-sm font-medium leading-normal hover:text-[#5b13ec] transition" href="#">People</a>
+            </div>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <label class="flex flex-col min-w-40 !h-10 max-w-64">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-[#a492c9] flex border-none bg-[#2f2348] items-center justify-center pl-4 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="24px"
+                  data-weight="regular"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  id="searchInput"
+                  placeholder="Search"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#2f2348] focus:border-none h-full placeholder:text-[#a492c9] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                />
+              </div>
+            </label>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#2f2348] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+              onclick="alert('Menu clicked')"
+            >
+              <div class="text-white" data-icon="List" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDkm1jief1qwiVOTy7bC_Y1OeQEkvuM7LnB_lAsdf3oZsl6HFkYhVnY07F-xnsFRtU0exf-q_BOEJmr7MBfm7-dJTVf63Q5Xo4mINdfgRJYusvnl5eunM_A40YROxRW7Z0okZj5qINqsh2gHY_VzyCWpq54EmMnh7SB_eYuI1pmc5oI0h05mqwAg9ExgxDtx2t8NdSxEwkOQm888JmPLgJ65MMAx1vZ3o8iMmORx-L-a8vrW_HVWNBvUuCu2eAUCEDp-o3ghdeFUgs");'
+            ></div>
+          </div>
+        </header>
+
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Search Results</h2>
+            
+            <div id="resultsContainer" class="flex flex-col gap-3 px-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Örnek veri
+      const movies = [
+        { title: "Cosmic Frontier", year: 2023, genre: "Action, Adventure, Sci-Fi", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBt-0phN46xZREtKTN-hxSyJ4kd_6ILtMsH1kbQlcqZDXveJ7QiRy7ViTAJ6XwAMtC1RkWgnuyiqBET9Z9hvFME-IsaMHGBpT4aWchQFyXjtm3NHjUsGscj_ZNhJeSWBMiYmvDltn6elqfDYWdH5Mybsn0xUspJ4udnNSPqP01U-TcJ0ClEz13_yurTIwPZ1Xna5USnf3vY7_3eKazoNE9wdfSRhv7HfJPFqlyylRApiiIn__uxezIauc8vg-ua0Ycve8q-qvmC9Ms" },
+        { title: "Shadow Strike", year: 2022, genre: "Action, Thriller", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAdlaZPopplhttOyLWxd-marSk9aZ3L5UvxiaeK2qVecT9p74Uzod7ZYp-uPGjowdd7Wg1MQqlb_7QNottlAdlDWDdF5ujYdBRcd-cSwQYBwj7xrsBUED5ESxUZ3U5PyLZGj0IyNgu108mhiamKmu1sgz0qcOuZgkvkK-ajT_BwchKpP4dP-6nc4NP00K4HH_x-o1-4SB-8zRzsoQY7-TiZy_8fNsS2FRO5tB0yzHpoCzjxHX6nMIcnhc8jutEODZ9ogvIbLsKnkPw" },
+        { title: "City Lights", year: 2023, genre: "Comedy, Drama", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAldQr_zwzoT6kb2y_7TYvubCpJdqU7Mfg3WDtCdk0KmWCBmSBLhHbDwOUve5mwXYtfSD3nL708kTNoliCXBdzdMNVrRcLvf9ZkfQB_-K3fsHblDd3bZxDDLbYg_zV_YgibdYsSpFJXxWy8TyG2R4loJhqdFP-jdc8VQk8Nqn-rcjzRlzpQlzRoFUCE7NuTm4fg2jw2y3uPs1rZq75-seiQg5YcxAKLnmVMFCCj3k4lutCMQoplN4ntdEirF3UYyzHg3lRUdTMOq_g" },
+      ];
+
+      const resultsContainer = document.getElementById("resultsContainer");
+      const searchInput = document.getElementById("searchInput");
+
+      function renderResults(filtered) {
+        resultsContainer.innerHTML = "";
+        filtered.forEach(movie => {
+          const div = document.createElement("div");
+          div.className = "flex items-center gap-4 bg-[#171122] px-4 py-3";
+          div.innerHTML = `
+            <div class="bg-center bg-no-repeat aspect-video bg-cover rounded-lg h-14 w-fit" style='background-image: url("${movie.image}");'></div>
+            <div class="flex flex-col justify-center">
+              <p class="text-white text-base font-medium leading-normal line-clamp-1">${movie.title}</p>
+              <p class="text-[#a492c9] text-sm font-normal leading-normal line-clamp-2">${movie.year} · ${movie.genre}</p>
+              <button class="mt-2 bg-[#5b13ec] text-white px-3 py-1 rounded hover:bg-[#6d2dfc] transition" onclick="alert('Fragman oynatılıyor: ${movie.title}')">İzle / Fragman</button>
+            </div>
+          `;
+          resultsContainer.appendChild(div);
+        });
+      }
+
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+        const filtered = movies.filter(m => m.title.toLowerCase().includes(query));
+        renderResults(filtered);
+      });
+
+      // Başlangıçta tüm listeyi göster
+      renderResults(movies);
+    </script>
+  </body>
+</html>
