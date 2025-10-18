@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700"
+    />
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-[#171122] dark group/design-root overflow-x-hidden"
+      style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#2f2348] px-10 py-3">
+          <!-- ...header kodun aynı kalabilir... -->
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:px-4 @[480px]:py-3">
+                <div
+                  id="moviePoster"
+                  class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#171122] @[480px]:rounded-lg min-h-80 cursor-pointer transition-transform duration-200 hover:scale-105 hover:shadow-2xl relative"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD9l9cYPgs00yxxt9B-xOj4bUtGPZTAWePWB9d43nU0pOrG0NGFvlGFJ3BcuC-UswP_ZvLFgiC8x7n8JJ0I-2eXO-wznAk9IVguTxo70EpxEKM67rMrR5pd5NTDw1gCM8BqyQ7f_SmgzIwX8zQlgPsXSe3nDhepcOUcxusf9U10cJA2LpXuSQRgAVGOlH82TPCP8Oc1bSbydX9La472psfqcjH9S0vJ_5rtunSGcnT6nhITuzaqmQPmMr9791pMGBaKVVPUJuQ92Hk");'
+                  title="Click for details"
+                >
+                  <button
+                    id="watchTrailerBtn"
+                    class="flex shrink-0 items-center justify-center rounded-full size-16 bg-black/40 text-white transition-transform duration-150 hover:scale-110 hover:bg-[#5b13ec] absolute left-4 bottom-4"
+                    title="Watch Trailer"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"
+                      ></path>
+                    </svg>
+                  </button>
+                  <button
+                    id="addFavoriteBtn"
+                    class="absolute top-4 right-4 flex items-center justify-center rounded-full size-10 bg-black/40 text-white transition-transform duration-150 hover:scale-110 hover:bg-[#5b13ec]"
+                    title="Add to Favorites"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M128,224a8,8,0,0,1-4.57-1.43C99.06,207.09,40,162.14,40,104A56,56,0,0,1,128,48a56,56,0,0,1,88,56c0,58.14-59.06,103.09-83.43,118.57A8,8,0,0,1,128,224Z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Modal for movie details -->
+            <div id="movieModal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 hidden">
+              <div class="bg-[#221933] rounded-lg p-8 max-w-lg w-full text-white relative">
+                <button id="closeModalBtn" class="absolute top-2 right-2 text-[#a492c9] hover:text-[#5b13ec] text-xl font-bold">&times;</button>
+                <h2 class="text-[28px] font-bold mb-2">The Silent Echo</h2>
+                <p class="mb-2">IMDb: 7.8 | Thriller, Psychological, Mystery</p>
+                <p class="mb-4">A renowned psychologist, Dr. Evelyn Hayes, finds her life spiraling out of control when she takes on a new patient, a young man named Alex Turner, who claims to communicate with the deceased...</p>
+                <button id="modalWatchTrailerBtn" class="bg-[#5b13ec] hover:bg-[#6c2cf7] text-white px-4 py-2 rounded-lg font-bold transition-colors duration-150">Watch Trailer</button>
+                <button id="modalAddFavoriteBtn" class="bg-[#2f2348] hover:bg-[#3d2e5d] text-white px-4 py-2 rounded-lg font-bold ml-2 transition-colors duration-150">Add to Favorites</button>
+              </div>
+            </div>
+            <!-- ...diğer film detayları, cast, yorumlar vs. aynı kalabilir... -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Watch Trailer button
+      document.getElementById('watchTrailerBtn').onclick = function(e) {
+        e.stopPropagation();
+        alert('Trailer is playing!');
+      };
+
+      // Add to Favorites button
+      document.getElementById('addFavoriteBtn').onclick = function(e) {
+        e.stopPropagation();
+        alert('Added to favorites!');
+      };
+
+      // Movie poster click: open modal
+      document.getElementById('moviePoster').onclick = function() {
+        document.getElementById('movieModal').classList.remove('hidden');
+      };
+
+      // Modal close button
+      document.getElementById('closeModalBtn').onclick = function() {
+        document.getElementById('movieModal').classList.add('hidden');
+      };
+
+      // Modal Watch Trailer button
+      document.getElementById('modalWatchTrailerBtn').onclick = function() {
+        alert('Trailer is playing!');
+      };
+
+      // Modal Add to Favorites button
+      document.getElementById('modalAddFavoriteBtn').onclick = function() {
+        alert('Added to favorites!');
+      };
+    </script>
+  </body>
+</html>  
