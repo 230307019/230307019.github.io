@@ -17,7 +17,10 @@
       style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'
     >
       <div class="layout-container flex h-full grow flex-col">
-        <!-- ...header ve navbar kodun aynı kalabilir... -->
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#2f2348] px-10 py-3">
+          <!-- Header içerikleri burada (Logo, Menü, İkonlar) -->
+        </header>
+
         <div class="px-40 flex flex-1 justify-center py-5">
           <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
             <div class="flex flex-wrap justify-between gap-3 p-4">
@@ -26,93 +29,97 @@
                 <p class="text-[#a492c9] text-sm font-normal leading-normal">We're here to help! Reach out with any questions or feedback.</p>
               </div>
             </div>
-            <form id="contactForm">
-              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                <label class="flex flex-col min-w-40 flex-1">
-                  <p class="text-white text-base font-medium leading-normal pb-2">Name</p>
-                  <input
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="Your Name"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#5b13ec] border-none bg-[#2f2348] h-14 placeholder:text-[#a492c9] p-4 text-base font-normal leading-normal transition-all duration-150"
-                  />
-                </label>
+
+            <!-- Form Alanları -->
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-white text-base font-medium leading-normal pb-2">Name</p>
+                <input
+                  id="contact-name"
+                  placeholder="Your Name"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#2f2348] focus:border-none h-14 placeholder:text-[#a492c9] p-4 text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-white text-base font-medium leading-normal pb-2">Email</p>
+                <input
+                  id="contact-email"
+                  placeholder="Your Email"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#2f2348] focus:border-none h-14 placeholder:text-[#a492c9] p-4 text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-white text-base font-medium leading-normal pb-2">Subject</p>
+                <input
+                  id="contact-subject"
+                  placeholder="Subject"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#2f2348] focus:border-none h-14 placeholder:text-[#a492c9] p-4 text-base font-normal leading-normal"
+                  value=""
+                />
+              </label>
+            </div>
+
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-white text-base font-medium leading-normal pb-2">Message</p>
+                <textarea
+                  id="contact-message"
+                  placeholder="Your Message"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#2f2348] focus:border-none min-h-36 placeholder:text-[#a492c9] p-4 text-base font-normal leading-normal"
+                ></textarea>
+              </label>
+            </div>
+
+            <!-- Gönder Butonu -->
+            <div class="flex px-4 py-3 justify-end">
+              <button
+                id="sendMessageBtn"
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#5b13ec] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Send Message</span>
+              </button>
+            </div>
+
+            <!-- Contact Information -->
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Contact Information</h2>
+            <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#443267] py-5">
+                <p class="text-[#a492c9] text-sm font-normal leading-normal">Email</p>
+                <p class="text-white text-sm font-normal leading-normal">support@vibemovies.com</p>
               </div>
-              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                <label class="flex flex-col min-w-40 flex-1">
-                  <p class="text-white text-base font-medium leading-normal pb-2">Email</p>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="Your Email"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#5b13ec] border-none bg-[#2f2348] h-14 placeholder:text-[#a492c9] p-4 text-base font-normal leading-normal transition-all duration-150"
-                  />
-                </label>
+              <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#443267] py-5">
+                <p class="text-[#a492c9] text-sm font-normal leading-normal">Phone</p>
+                <p class="text-white text-sm font-normal leading-normal">+1 (555) 123-4567</p>
               </div>
-              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                <label class="flex flex-col min-w-40 flex-1">
-                  <p class="text-white text-base font-medium leading-normal pb-2">Subject</p>
-                  <input
-                    id="subject"
-                    name="subject"
-                    required
-                    placeholder="Subject"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#5b13ec] border-none bg-[#2f2348] h-14 placeholder:text-[#a492c9] p-4 text-base font-normal leading-normal transition-all duration-150"
-                  />
-                </label>
-              </div>
-              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                <label class="flex flex-col min-w-40 flex-1">
-                  <p class="text-white text-base font-medium leading-normal pb-2">Message</p>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    placeholder="Your Message"
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#5b13ec] border-none bg-[#2f2348] min-h-36 placeholder:text-[#a492c9] p-4 text-base font-normal leading-normal transition-all duration-150"
-                  ></textarea>
-                </label>
-              </div>
-              <div class="flex px-4 py-3 justify-end">
-                <button
-                  type="submit"
-                  id="sendBtn"
-                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#5b13ec] text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors duration-150 hover:bg-[#6c2cf7]"
-                >
-                  <span class="truncate">Send Message</span>
-                </button>
-              </div>
-              <p id="contactError" class="text-red-400 text-sm font-normal leading-normal pb-3 pt-1 px-4 text-center hidden">Please fill all fields correctly.</p>
-            </form>
-            <!-- ...iletişim bilgileri kısmı aynı kalabilir... -->
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <script>
-      document.getElementById('contactForm').onsubmit = function(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const subject = document.getElementById('subject').value.trim();
-        const message = document.getElementById('message').value.trim();
 
-        if (name && email && subject && message && email.includes('@')) {
-          document.getElementById('contactError').classList.add('hidden');
-          alert(
-            'Mesajınız gönderildi!\n\n' +
-            'Ad: ' + name +
-            '\nE-posta: ' + email +
-            '\nKonu: ' + subject +
-            '\nMesaj: ' + message
-          );
-        } else {
-          document.getElementById('contactError').classList.remove('hidden');
-        }
-      };
-    </script>
+      <script>
+        const sendBtn = document.getElementById("sendMessageBtn");
+
+        sendBtn.addEventListener("click", () => {
+          const name = document.getElementById("contact-name").value.trim();
+          const email = document.getElementById("contact-email").value.trim();
+          const subject = document.getElementById("contact-subject").value.trim();
+          const message = document.getElementById("contact-message").value.trim();
+
+          console.log("Contact Form Submission:");
+          console.log("Name:", name);
+          console.log("Email:", email);
+          console.log("Subject:", subject);
+          console.log("Message:", message);
+        });
+      </script>
+    </div>
   </body>
 </html>
